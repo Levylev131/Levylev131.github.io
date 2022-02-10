@@ -1,6 +1,12 @@
+/*  
+    Task: The Word Machine Emulator
+    Project by: Levi Hannon
+    Date: Febuary 2022
 
-
-
+    This Program Takes in an Array of String as the input from the user.
+    It then this proceeds to Parse through the Users Input and perform a sequence of operations on the string.
+    The results of this program are the values of the last operation to be performed on each input from the user.
+*/
 
 function WordMachineEmulator() 
 {
@@ -8,8 +14,6 @@ function WordMachineEmulator()
 
     //Gets User Input From HTML Textbox
     let UserInput1 = document.getElementById("myText").value;
-    let yo = "USER INPUT:";
-    //document.getElementById("Input1").innerHTML = yo + UserInput1;
     let MainStack = UserInput1.split(", ");
     for(let i=0; i < MainStack.length; i++)
     {
@@ -18,14 +22,13 @@ function WordMachineEmulator()
 
     console.log("--------------------------------------------------------------");
 
-    //let UserInputsTEST = ["23 DUP 4 POP 5 DUP + DUP + -", "34 30 66 + yolo 70 +", "334 + 735 POP -", "5 6 + - 6 8 9"];
     let AnswerArrays = new Array();
 
     for(let i=0; i <= MainStack.length-1; i++) //Loops through the String of Array Sequence inputs from User
     {
         let newArray1 = MainStack[i].split(" ");
         let FinalArray = new Array();
-        console.log("%i-User Input:", i+1, newArray1);
+        console.log("User Input-%i = ", i+1, newArray1);
 
         for(let j=0; j <= newArray1.length-1; j++) //Parses Through every Value in Each Section 
         {
@@ -37,7 +40,6 @@ function WordMachineEmulator()
             }
             else
             {
-                //console.log("NOT INT");
                 if(newArray1[j] === 'DUP') //DUPLICATE
                 {
                     //console.log("Number DUPED:");
@@ -47,14 +49,13 @@ function WordMachineEmulator()
                     FinalArray.push(newArray3);
                     console.log("%i-Operation:", j+1, newArray1[j], "<-Duplicate", newArray3, "and Push Onto Array");
                 }
-                else if(newArray1[j] === 'POP') //POP-OFF
+                else if(newArray1[j] === 'POP') //POP: The machine removes the topmost number from the stack.
                 {
-                    //console.log("Number POPPED");
                     let newArray3 = newArray1[j-1];
                     FinalArray.pop(newArray3);
                     console.log("%i-Operation:", j+1, newArray1[j], "<-Pop", newArray1[j-1], "off the Array");
                 }
-                else if(newArray1[j] === '+') //ADDITION
+                else if(newArray1[j] === '+') //ADDITION: The machine pops the topmost elements from the stack, adds them and pushes the sum on to the stack.
                 {
                     if(FinalArray.length >= 2) //Error check for addition
                     {
@@ -63,7 +64,7 @@ function WordMachineEmulator()
                         let newArray4 = FinalArray[FinalArray.length-2];
                         var y = parseInt(newArray4);
 
-                        FinalArray.pop(FinalArray[FinalArray.length-1]); //Pops off the old addition 
+                        FinalArray.pop(FinalArray[FinalArray.length-1]); //Pops off the old values
                         FinalArray.pop(FinalArray[FinalArray.length-2]);
                         let newArray5 = x + y;
 
@@ -83,7 +84,7 @@ function WordMachineEmulator()
                         console.log("%i-Operation:", "ERROR - Can't Add Numbers because not enough values");
                     }
                 }
-                else if(newArray1[j] === '-')
+                else if(newArray1[j] === '-') //SUBTRACTION: The machine pops the topmost elements from the stack, subtracts them and pushes the result on to the stack.
                 {
                     if(FinalArray.length >= 2)
                     {   
@@ -92,7 +93,7 @@ function WordMachineEmulator()
                         let newArray4 = FinalArray[FinalArray.length-2];
                         var y = parseInt(newArray4);
 
-                        FinalArray.pop(FinalArray[FinalArray.length-1]); //Pops off the old addition 
+                        FinalArray.pop(FinalArray[FinalArray.length-1]); //Pops off the old values
                         FinalArray.pop(FinalArray[FinalArray.length-2]); 
                         let newArray5 = Math.abs(x - y);
                         if(newArray5.toString() == 'NaN')
@@ -117,16 +118,15 @@ function WordMachineEmulator()
                     FinalArray.push('ERROR');
                     console.log("ERROR - Invalid Value");
                 }
-            }
-            //console.log(FinalArray);
-            
+            }           
+            console.log("New Array-%i:", j+1, FinalArray); 
         }
-        console.log(FinalArray);
-        AnswerArrays.push(FinalArray.pop());
+        console.log("User Result-%i = ", i+1, FinalArray);
+        AnswerArrays.push(FinalArray.pop()); //Gets the result of the [last] operation that the machine returns for each input value.
              
         console.log("--------------------------------------------------------------");
     }
-    console.log("Answers:", AnswerArrays);
+    console.log("Final Answers:", AnswerArrays);
 
     document.getElementById("Input1").innerHTML = "Main Results - " + AnswerArrays;
     document.getElementById("Input2").innerHTML = " ";
