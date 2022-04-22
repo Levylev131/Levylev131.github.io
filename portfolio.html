@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+
+<html>
+
+    <title>Levi H Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <style>
+    </style>
+
+    <body>
+
+        <!-- !PAGE CONTENT! -->
+        <!-- Header -->
+        <!-- Header -->
+        <header>
+            <a href="index.html" class="header-brand"> LHannon</a>
+                <nav>
+                    <ul> 
+                        <li> <a href="about.html" >  About </a> </li>
+                        <li> <a href="portfolio.html" style="font-weight: 800; color: rgb(5, 2, 211);"> Portfolio </a> </li>
+                        <li> <a href="contact.html"> Contact </a> </li>
+                    </ul>
+                    <a href="youtube.html" class="header-cases"> Youtube </a>
+                </nav>
+        </header>
+
+        <!-- Main -->
+        <main>
+            <section class="index-banner">
+                <div class="vertical-center">
+                    <h2 style="font-family: 'Arial';"> <b> PORTFOLIO <br> </b></h2> <br>
+                </div>
+            </section>
+            <br>
+            <br>
+        </main>
+
+
+
+
+        <div class="wrapper">
+            <h1><u></u></h1> <br>
+
+            <h2><u>Word Machine Emulator</u></h2>
+            <p> A word machine is a system that performs a sequence of operations on a stack of integers. </p>
+            <p> Use the textbox below to type numbers and values that the Word Machine Can Process.</p>
+            <p> <b>Accepted Values:</b> 25, DUP, POP, +, -</p>
+            <p> Please seperate your operations by using a comma (, ) like in the examples below:</p>
+            <p font="2"> EXAMPLE-1: 23 DUP 4 POP 7 +, 5 6 + 7 DUP, 56 78 + </p>
+            <p font="2"> EXAMPLE-2: 56 45 DUP + POP -, 87 DUP 45 + 65 </p>
+
+            <form> <!-- User Input Textbox with Min length 0 and Max length 3000 -->
+                <label for="myText"> User Input: </label>
+                <input type="text" id="myText" required minlength="0" maxlength="3000" size="100" placeholder="23 DUP 4 POP 7 +, 5 6 + 7 DUP, 56 78 + "> 
+            </form>
+
+            <p> Click the Button Below to Get the Results. </p>
+
+            <button type="reset" onclick="WordMachineEmulator();" value='Submit'> RESULTS: </button>
+            <u id="Input1"> </u>
+            <form action="submit" method="post" id="Input2"> </form>
+
+            <script src="main.js"></script>
+
+            <br>
+            <br>
+            <br>
+
+            <p> <i> To view the process/stack for each operation click F12 to bring up the Developer Tools and go to the "Console" Tab.</i> </p> 
+            <p> <i> To see the code for this project go to the "Sources" Tab in the Dev Tools and click the files called: "index.html" & "main.js".</i></p>
+        
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            <h4 style="font-weight: 600;"> <u> Video Game I Made in College </u> </h4> <br>
+
+            
+        
+                    <video id="myVideo" controls>
+                        <source src="vids/IPARB Video-2.mp4" type="video/mp4">
+                        Your browser does not support the video.
+                    </video>
+
+                    <script >
+                        var vid = document.getElementById("myVideo");
+                        vid.volume = 0.1;
+                    </script>
+        </div>
+
+    </body>
+
+</html>
