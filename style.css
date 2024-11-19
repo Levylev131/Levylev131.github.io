@@ -65,7 +65,7 @@ header {
     Height: 100px;
 }
 
-header .header-brand{
+header .header-brand {
     font-family: arial;
     font-size: 24px;
     font-weight: 900;
@@ -76,6 +76,8 @@ header .header-brand{
     text-align: center;
     padding: 20px 0;
 }
+
+
 
 header nav ul {
     display: block;
@@ -92,15 +94,19 @@ header nav ul li {
 
 header nav ul li a {
     font-family: catamaran;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     color: #111;
     text-transform: uppercase;
 }
 
-header .header-cases {
-    display: none;
+header .header-UL {
+    font-family: catamaran;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
 }
+
 
 @media only screen and (min-width: 1000px) {
     header .header-brand{       
